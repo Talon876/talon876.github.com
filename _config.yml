@@ -13,7 +13,7 @@ markdown: rdiscount
 # so be sure to set them if your theme uses them.
 #
 title : Nolat
-tagline: echo "nolat" | sed '/\n/!G;s/\(.\)\(.*\n\)/&\2\1/;//D;s/.//'
+tagline: echo "nolat" | sed 's/./&\n/g' | tac | tr -d '\n'
 author :
   name : Talon Daniels
   email : talondaniels@gmail.com
