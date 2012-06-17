@@ -105,6 +105,7 @@ JB :
     provider : google 
     google : 
         tracking_id : 'UA-31956586-1'
+        domain_name : 'nolat.org'
     getclicky :
       site_id : 
     mixpanel :

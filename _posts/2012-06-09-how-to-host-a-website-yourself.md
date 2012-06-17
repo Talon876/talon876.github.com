@@ -62,8 +62,12 @@ For you to share your website publicly, you must meet a few conditions:
 *  Your firewalls are properly configured to allow connections through port 80 or whatever port you're having apache run on.
   
 ###Apache Configuration
-`apache2.2` - This refers to the folder where apache was installed to. This is probably _C:\Program Files (x86)\Apache Software Foundation\Apache2.2_
-`httpd.conf` - apache2.2/conf/httpd.conf
+When reading the following, replace the paths shown with your paths.
+
+
+*  `apache2.2` - This refers to the folder where apache was installed to. This is probably _C:\Program Files (x86)\Apache Software Foundation\Apache2.2_
+
+*  `httpd.conf` - apache2.2/conf/httpd.conf
 
 #####How to change the port number.
 Open up the `httpd.conf` file in a text editor such as [Notepad++](http://notepad-plus-plus.org/download/v6.1.3.html)
