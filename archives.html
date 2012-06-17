@@ -1,0 +1,12 @@
+---
+layout: page
+title : Archives
+tagline : list ALL of the posts!
+group: navigation
+---
+{% include JB/setup %}
+{% assign posts_collate = site.posts %}
+
+{% for post in posts_collate %}
+{% include postpreview %}
+{% endfor %}

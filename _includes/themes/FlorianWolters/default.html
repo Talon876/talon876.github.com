@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="{{ site.charset }}" />
+        <title>{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
+        <meta name="author" content="{{ site.author.name }}" />
+    {% if page.description %}
+        <meta name="description" content="{{ page.description }}" />
+    {% elsif site.description %}
+        <meta name="description" content="{{ site.description }}" />
+        {% endif %}
+    {% if site.keywords %}
+        <meta name="keywords" content="{{ site.keywords }}" />
+    {% endif %}
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <!-- http://developers.facebook.com/docs/reference/plugins/comments/ -->
+{% if site.JB.comments.provider == "facebook" %}
+    {% if site.JB.comments.facebook.userid %}
+        <meta property="fb:admins" content="{{ site.JB.comments.facebook.userid }}" />
+    {% endif %}
+    {% if site.JB.comments.facebook.appid %}
+        <meta property="fb:app_id" content="{{ site.JB.comments.facebook.appid }}" />
+    {% endif %}
+{% endif %}
+        <!-- Import Cascading StyleSheets (CSS). -->
+
+        <link rel="stylesheet" href="{{ ASSET_PATH }}/css/lib/normalize.min.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="{{ ASSET_PATH }}/css/lib/markdown.min.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="{{ ASSET_PATH }}/js/lib/jquery.fancybox/jquery.fancybox.css?v=2.0.6" media="screen" />
+        <link rel="stylesheet" href="{{ ASSET_PATH }}/js/lib/jquery.fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.2" media="screen" />
+        <link rel="stylesheet" href="{{ ASSET_PATH }}/js/lib/jquery.fancybox/helpers/jquery.fancybox-thumbs.css?v=2.0.6" media="screen" />
+        <link rel="stylesheet" href="{{ ASSET_PATH }}/css/style.css" type="text/css" media="screen" />
+
+        <!-- Include favorite icon (favicon) and apple touch icons. -->
+        <!-- NOTICE: Place the image files in the /img directory, not in the /assets/themes/<THEME>/img directory! -->
+        <link rel="shortcut icon" href="{{ BASE_PATH }}/img/favicon.ico" />
+        <link rel="apple-touch-icon" href="{{ BASE_PATH }}/img/touch-icon-iphone.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ BASE_PATH }}/img/touch-icon-ipad.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ BASE_PATH }}/img/touch-icon-iphone4.png" />
+    </head>
+    <body>
+        <a href="http://github.com/{{ site.author.github }}">
+            <img style="position: absolute; top: 0; right: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" />
+        </a>
+
+        <header>
+            <a href="{{ BASE_PATH }}/">{{ site.title }}</a>
+            <nav>
+                <ul>
+                    {% if site.navigation_pages %}
+                        {% comment %}<!--
+                        Use custom navigation pages if defined. This method allows the ordering of the navigation.
+                        -->{% endcomment %}
+                        {% comment %} Custom ordering (and inclusion) of the navigation is defined. {% endcomment %}
+                        {% for navtitle in site.navigation_pages %}
+                            {% for node in site.pages %}
+                                 {% if navtitle == node.title %}
+                                    {% if page.url == node.url %}
+                                        <li class="active"><a href="{{ BASE_PATH }}{{node.url}}" class="active">{{node.title}}</a></li>
+                                    {% else %}
+                                        <li><a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a></li>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    {% else %}
+                        {% comment %}<!--
+                        Use Jekyll-Bootstrap method if no custom navigation pages are defined.
+                        -->{% endcomment %}
+                        {% assign pages_list = site.pages %}
+                        {% assign group = 'navigation' %}
+                        {% include JB/pages_list %}
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>
+
+        <div role="main">
+            {{ content }}
+        </div>
+
+        <footer>
+            <div class="summary">
+                <p>
+                    &copy; <a href="mailto:{{ site.author.email }}">{{ site.author.name }}</a> <small>{{ site.year }}</small><br />
+                    {{ site.tagline }}<br />
+                {% if site.author.xing %}
+                    <a href="http://xing.com/profile/{{ site.author.xing }}">
+                        <img src="http://www.xing.com/img/buttons/10_en_btn.gif" alt="XING" />
+                    </a>
+                {% endif %}
+                </p>
+            </div>
+            <div class="data">
+                <p>
+                    <small>
+                        Updated: {{ site.time | date_to_long_string }}<br />
+                    {% if site.show_humanstxt == true %}
+                        <a href="{{ BASE_PATH }}/humans.txt">humans.txt</a><br />
+                    {% endif %}
+                    {% if site.show_statistics == true %}
+                        <a href="{{ BASE_PATH }}/statistics.html">Statistics</a>
+                    {% endif %}
+                    </small>
+                </p>
+            </div>
+            <div class="links">
+                <p>
+                    <a href="http://validator.w3.org/check?uri={{ site.production_url }}">
+                        <img style="width:88px; height:31px;" src="{{ ASSET_PATH }}/img/valid-html5.png" alt="Valid HTML5" title="Valid HTML5" />
+                    </a>
+                    <a href="http://jigsaw.w3.org/css-validator/validator?uri={{ site.production_url }}&amp;profile=css3&amp;usermedium=all&amp;warning=2">
+                        <img style="width:88px; height:31px;" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS3" title="Valid CSS3" />
+                    </a>
+                {% if site.author.feedburner %}
+                    <a href="http://feeds.feedburner.com/{{ site.author.feedburner }}">
+                        <img src="{{ ASSET_PATH }}/img/rss.png" alt="RSS Feed" title="RSS Feed" />
+                    </a>
+                {% endif %}
+                </p>
+                <form id="google-search" action="http://google.com/search">
+                    <input type="hidden" name="sitesearch" value="{{ site.production_url }}" />
+                    <label for="q">Search</label>
+                    <input id="q" type="text" name="q" title="Enter search query." />
+                    <input type="image" src="{{ ASSET_PATH }}/img/google.png" alt="Google" title="Google Search" />
+                </form>
+            </div>
+        </footer>
+
+        {% include JB/analytics %}
+
+        <!-- Import JavaScript (JS). -->
+
+        <!-- Import Modernizr. -->
+        <script src="{{ ASSET_PATH }}/js/lib/modernizr-2.5.3.min.js"></script>
+
+        <!--
+            Import jQuery from Google Content Delivery Network (CDN).
+            Fall back to the local copy if necessary.
+        -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script>
+            window.jQuery || document.write(unescape('%3Cscript src="{{ ASSET_PATH }}/js/lib/jquery-1.7.2.min.js" %3E3C/script%3E'));
+        </script>
+
+        <!-- Import jQuery MouseWheel plugin (optional). -->
+        <script src="{{ ASSET_PATH }}/js/lib/jquery.mousewheel/jquery.mousewheel.min.js"></script>
+
+        <!-- Import jQuery FancyBox plugin. -->
+        <script src="{{ ASSET_PATH }}/js/lib/jquery.fancybox/jquery.fancybox.pack.js?v=2.0.6"></script>
+        <script src="{{ ASSET_PATH }}/js/lib/jquery.fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.2"></script>
+        <script src="{{ ASSET_PATH }}/js/lib/jquery.fancybox/helpers/jquery.fancybox-media.js?v=1.0.0"></script>
+        <script src="{{ ASSET_PATH }}/js/lib/jquery.fancybox/helpers/jquery.fancybox-thumbs.js?v=2.0.6"></script>
+
+        <script src="{{ ASSET_PATH }}/js/site.js"></script>
+    </body>
+</html>

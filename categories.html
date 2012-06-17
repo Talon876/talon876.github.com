@@ -1,0 +1,28 @@
+---
+layout: page
+title: Categories
+tagline: are general collection of posts. Think of them like folders.
+header: Posts By Category
+group: navigation
+---
+{% include JB/setup %}
+<div class="accordion" id="accordion2">
+{% for category in site.categories %}
+{% assign pages_list = category[1] %}
+	<div class="accordion-group">
+	  <div class="accordion-heading">
+		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#{{ category[0] | join: "/" | capitalize}}">
+		  <h2>{{ category[0] | join: "/" | capitalize}} <small>{{category[1].size}} posts</small></h2>
+		</a>
+	  </div>
+	  
+	  <div id="{{ category[0] | join: "/" | capitalize}}" class="accordion-body collapse">
+		<div class="accordion-inner">
+		{% for post in pages_list %}
+			{% include postpreview %}
+	    {% endfor %}
+		</div>
+	  </div>
+	</div>
+{% endfor %}
+</div>
