@@ -24,7 +24,7 @@ These instructions are for Windows 7, though I believe the instructions should w
 3. Click the `Environment Variables...` button.
 
 4. This is the screen that allows you to create, modify, and delete environment variables. The section on top is only for you, while the system variables affect all users. The `PATH` variable is a system variable.
-	{% assign image_id = "60" %}
+    {% assign image_id = "60" %}
     {% include image %}
 - - -
 
@@ -32,9 +32,9 @@ These instructions are for Windows 7, though I believe the instructions should w
 Walk through (or just read) the following steps to see what the `PATH` variable does.
 
 1. Open a text editor and create a file named `madness.bat` with the following contents:
-    {% highlight bat %}
+        
         @echo off
-        echo "Madness? This. is. SPARTA!"{% endhighlight bat %}
+        echo "Madness? This. is. SPARTA!"
 2. Create a folder called `sparta` on the `C:\` drive.
 3. Save `madness.bat` in the folder `C:\sparta`.
 4. Open a terminal/command prompt and enter the command: `madness`. This causes an error
@@ -58,8 +58,13 @@ Walk through (or just read) the following steps to see what the `PATH` variable 
 7. Click `Edit...` and a window will pop up allowing you to edit the variable value.
 8. **Warning!** &mdash; Do not erase anything currently in the Variable value textfield or you might make certain programs not work.
 
-  We must edit the `PATH` variable to include the path to our folder we created in step 2. To do this, at the very end of the text in the `Variable value` textfield, there should be a semicolon. If there isn't one, add one. The semicolon is what separates the paths. 
- Edit your path variable value by appending `;C:\sparta;` to it. The semicolons are precautionary, if there was already a semicolon at the end of your Variable value, you don't need to include the one before the path. I usually add a semicolon at the end of paths just so I don't have to do it when I go to add a new one in the future.
+    We must edit the `PATH` variable to include the path to our folder we created in step 2. 
+    To do this, at the very end of the text in the `Variable value` textfield, there should be a semicolon.
+    If there isn't one, add one. The semicolon is what separates the paths. 
+    Edit your path variable value by appending `;C:\sparta;` to it. The semicolons are precautionary,
+    if there was already a semicolon at the end of your Variable value, you don't need to include the one before the path.
+    I usually add a semicolon at the end of paths just so I don't have to do it when I go to add a new one in the future.
+    
     {% assign image_id = "40" %}
     {% include image %}
 

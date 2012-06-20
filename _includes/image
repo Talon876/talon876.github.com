@@ -1,4 +1,4 @@
 {% if alt_text == '' %}
   {% assign alt_text = '' %}
 {% endif %}
-[![{{alt_text}}]({{IMAGE_PATH}}/{{image_id}}.jpg)]({{IMAGE_PATH}}/{{image_id}}.jpg)
+    [![{{alt_text}}]({{IMAGE_PATH}}/{{image_id}}.jpg)]({{IMAGE_PATH}}/{{image_id}}.jpg)
