@@ -18,22 +18,22 @@ My only complaint is I can't angle the side monitors in any more than what's sho
 Enough with text, pictures!
 
 ###Gallery
-Monitors!
+*  Monitors!
 {% assign image_id = "wtBtdh" %}
 {% assign alt_text = "Monitors" %}
 {% include image %}
 
-Monitors again!
+*  Monitors again!
 {% assign image_id = "YgCwXh" %}
 {% assign alt_text = "Monitors again" %}
 {% include image %}
 
-'Floating' Monitor
+*  'Floating' Monitor
 {% assign image_id = "Y2T6hh" %}
 {% assign alt_text = "Floating Monitor" %}
 {% include image %}
 
-How it's put together
+*  How it's put together
 {% assign image_id = "WL8Aph" %}
 {% assign alt_text = "Construction" %}
 {% include image %}

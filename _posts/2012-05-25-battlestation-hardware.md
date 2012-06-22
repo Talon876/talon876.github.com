@@ -33,19 +33,19 @@ As you will see in the pictures though, even with a micro atx tower case, I can 
 
 ###Pictures
 - - -
-Monitors!
+*  Monitors!
 {% assign image_id = "MQlqH" %}
 {% assign alt_text = "Battlestation" %}
 {% include image %}
-Mini case!
+*  Mini case!
 {% assign image_id = "zD3zi" %}
 {% assign alt_text = "Case" %}
 {% include image %}
-Wires. Wires everywhere!
+*  Wires. Wires everywhere!
 {% assign image_id = "RhWSS" %}
 {% assign alt_text = "Inside the case" %}
 {% include image %}
-Windows Experience Index. Because I'm too lazy to download a real benchmark.
+*  Windows Experience Index. Because I'm too lazy to download a real benchmark.
 {% assign image_id = "k3RmF" %}
 {% assign alt_text = "WEI" %}
 {% include image %}
