@@ -33,12 +33,43 @@
           <ul class="nav">
             {% assign pages_list = site.pages %}
             {% assign group = 'navigation' %}
-            {% include JB/pages_list %}			
+            {% include JB/pages_list %}	
+			<li><a href="#contact_modal" data-toggle="modal">Contact Me</a></li>			
           </ul>
 		  <p class="navbar-text pull-right">{{ site.tagline }}</p>
         </div>
       </div>
     </div>
+	<!-- contact modal -->
+	<div id="contact_modal" class="modal hide fade">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">&times;</a>
+			<h3>Contact Me</h3>
+		</div>
+		<div id="contact_modal_body" class="modal-body">
+			<form id="modal-form" accept-charset="UTF-8" class="form-horizontal">
+				  <div class="control-group">
+					<label class="control-label" for="input01">Your email</label>
+					<div class="controls">
+					  <input name="email" type="text" class="input-xlarge" id="input01" placeholder="example@domain.com">
+					  <p class="help-block">I can't reply if you don't include your email.</p>
+					</div>
+				  </div>
+				  <div class="control-group">
+					<label class="control-label" for="textarea">Message</label>
+					<div class="controls">
+					  <textarea name="message" class="input-xlarge" id="textarea" rows="4"></textarea>
+					</div>
+				  </div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn" onclick="$('#contact_modal').modal('hide')">Cancel</a>
+			<a id="modal-form-submit" class='btn btn-primary' href="#">Send</a>
+		</div>
+	</div>
+	<!-- end contact modal -->
+	
     <div class="container">
       <div class="content">
         {{ content }}
@@ -49,5 +80,26 @@
     </div> <!-- /container -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script src="{{ ASSET_PATH }}/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$.ajax({
+			url: "http://apps.talon876.cloudbees.net/quotes",
+			}).done(function( html ) {
+			$("#quote").html(html);
+		});
+		$('#modal-form-submit').on('click', function(e){
+			e.preventDefault();
+			$('#modal-form').submit();
+		});
+		$('#modal-form').on('submit', function(){
+			$.post("http://apps.talon876.cloudbees.net/message", $(this).serialize(), function(){
+				$('#contact_modal_body').html('<h3>Message has been sent.</h3>');
+				$('#modal-form-submit').addClass("disabled");
+				$("#contact_modal").fadeOut('slow', function(){
+					$(this).modal('hide');
+				});
+			});
+		  return false;
+		});
+	</script>
   </body>
 </html>
