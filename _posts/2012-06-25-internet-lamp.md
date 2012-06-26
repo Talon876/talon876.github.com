@@ -125,3 +125,13 @@ I'm sure there are much more elegant ways of writing both of those scripts but I
 8. Finally, the appliance module receives the command and turns the lamp on or off.
 
 Now you can see why there is such a delay between clicking the buttons on the webpage and the lamp actually doing it :)
+
+###But why?
+The smartass answer: why not?
+
+The other smartass answer: because I can :)
+
+The legitimate answer: The final setup won't be so I can control a lamp over the Internet.
+It will, however, let me control my lamp (or any appliance for that matter) from any program that I create.
+This lets me put my lamp on any advanced timer/event system. With this, there are nearly endless possibilites.
+I can also buy more appliance modules and control more things.
