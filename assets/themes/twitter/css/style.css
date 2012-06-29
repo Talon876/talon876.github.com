@@ -1,11 +1,12 @@
 /* Override some defaults */
 html, body {
   background-color: #efefef;
-  background: #efefef url(images/background.jpg) top left repeat;
+  background: #efefef url(http://subtlepatterns.com/patterns/egg_shell.png) top left repeat;
   -webkit-font-smoothing:antialiased;
 }
 .navbar {
   margin: 0px -20px 0px -20px;
+  
 }
 .container > footer {
   margin-top: 20px;
@@ -33,12 +34,12 @@ img{
      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
           box-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
-a:hover,a code:hover{color:#2DA6E3;-webkit-transition:all 0.2s linear;transition:all 0.2s linear}
+a:hover,a code:hover{color:#2DA6E3;-webkit-transition:all .37s linear;transition:all 0.35s linear}
 /* The white background content wrapper */
 .content {
   background-color: #fafafa;
   
-  /*background: #f1f1f1 url(http://localhost:4000/background.jpg) top left repeat;*/
+  background: #fafafa url(http://subtlepatterns.com/patterns/redox_01.png) top left repeat;
   padding: 20px;
   margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
   -webkit-border-radius: 0 0 6px 6px;
@@ -58,6 +59,13 @@ a:hover,a code:hover{color:#2DA6E3;-webkit-transition:all 0.2s linear;transition
 
 .topbar .btn {
   border: 0;
+}
+
+.navbar .brand {
+padding: 8px 13px 4px; 
+}
+.navbar .nav > li > a.brand-image {
+padding: 3px 4px 0px 0px;
 }
 
 
