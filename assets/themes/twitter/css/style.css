@@ -8,6 +8,9 @@ html, body {
   margin: 0px -20px 0px -20px;
   
 }
+.tagline{
+  opacity:0;
+}
 .container > footer {
   margin-top: 20px;
 }
