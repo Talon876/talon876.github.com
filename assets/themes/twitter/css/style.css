@@ -37,8 +37,17 @@ img{
      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
           box-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
-a:hover,a code:hover{color:#2DA6E3;-webkit-transition:all .37s linear;transition:all 0.35s linear}
-/* The white background content wrapper */
+.noborder {
+-webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+}
+a:hover,a code:hover{
+color:#2DA6E3;
+-webkit-transition:all .37s linear;
+transition:all 0.35s linear
+}
+
 .content {
   background-color: #fafafa;
   
@@ -65,10 +74,22 @@ a:hover,a code:hover{color:#2DA6E3;-webkit-transition:all .37s linear;transition
 }
 
 .navbar .brand {
-padding: 8px 13px 4px; 
+padding: 8px 6px 4px; 
 }
 .navbar .nav > li > a.brand-image {
-padding: 3px 4px 0px 0px;
+-webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+padding: 4px 0px 0px 0px;
+}
+.navbar .nav > li > a > img.brand-image {
+-webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+}
+
+.navbar-inner {
+padding-left: 18px;
 }
 
 
