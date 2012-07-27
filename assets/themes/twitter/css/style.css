@@ -76,7 +76,11 @@ transition:all 0.35s linear
 .navbar .brand {
 padding: 8px 6px 4px; 
 }
+
 .navbar .nav > li > a.brand-image {
+-webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
 padding: 4px 0px 0px 0px;
 }
 .navbar .nav > li > a > img.brand-image {
